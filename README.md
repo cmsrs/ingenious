@@ -71,7 +71,7 @@ Unit tests in plus.
   docker compose exec workspace bash
   ``` 
 
-My solution:
+### My solution:
 
 1.
 ```
@@ -85,9 +85,9 @@ run test
 ```
 
 3.
-my changes (last commit):
+my changes (commit name: My solution):
 ```
-git diff
+git show  980a08352837198e72b9ca9808cbb5d4890afb23
 ```
 
 4.
@@ -103,3 +103,4 @@ http://localhost:8000/api/reject/2b9fbae0-8709-48f3-ad95-d5d29d7839af
 ```
 http://localhost:8000/api/approve/2b9fbae0-8709-48f3-ad95-d5d29d7839af
 ```
+
