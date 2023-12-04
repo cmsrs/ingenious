@@ -70,3 +70,36 @@ Unit tests in plus.
   ```
   docker compose exec workspace bash
   ``` 
+
+My solution:
+
+1.
+```
+php artisan migrate
+```
+
+2.
+run test
+```
+./vendor/bin/phpunit ./tests/Feature/Modules/Invoices/Infrastructure/Database/Models/InvoiceTest.php
+```
+
+3.
+my changes (last commit):
+```
+git diff
+```
+
+4.
+example endpoints:
+```
+http://localhost:8000/api/show/2b9fbae0-8709-48f3-ad95-d5d29d7839af
+```
+
+```
+http://localhost:8000/api/reject/2b9fbae0-8709-48f3-ad95-d5d29d7839af
+```
+
+```
+http://localhost:8000/api/approve/2b9fbae0-8709-48f3-ad95-d5d29d7839af
+```

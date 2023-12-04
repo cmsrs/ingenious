@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Modules\Invoices\Controllers\InvoiceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::get('/show/{invoiceId}', [InvoiceController::class, 'showInvoice']);
+Route::get('/reject/{invoiceId}', [InvoiceController::class, 'rejectInvoice']);
+Route::get('/approve/{invoiceId}', [InvoiceController::class, 'approveInvoice']);
+
