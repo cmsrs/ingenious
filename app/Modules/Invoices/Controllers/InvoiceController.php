@@ -11,13 +11,16 @@ use App\Modules\Approval\Api\Dto\ApprovalDto\EntityApproved;
 use App\Modules\Approval\Api\Dto\ApprovalDto\EntityRejected;
 use App\Modules\Approval\Application\ApprovalFacade;
 use Ramsey\Uuid\Uuid;
-use Illuminate\Contracts\Events\Dispatcher;
+//use Illuminate\Contracts\Events\Dispatcher;
+use App\Modules\Approval\Api\ApprovalFacadeInterface;
 
 class InvoiceController extends Controller
 {
-    public function __construct(Dispatcher $dispatcher)
+    //public function __construct(Dispatcher $dispatcher, ApprovalFacadeInterface $approvalFacade)
+    public function __construct(ApprovalFacadeInterface $approvalFacade)    
     {
-        $this->dispatcher = $dispatcher;
+        //$this->dispatcher = $dispatcher;
+        $this->approvalFacade = $approvalFacade;
     }
 
     public function showInvoice(string $invoiceId)
@@ -48,8 +51,9 @@ class InvoiceController extends Controller
             $status,
            'Invoice'
         );
-        $f = new ApprovalFacade($this->dispatcher);
-        $f->approve($approvalDto);
+        //$f = new ApprovalFacade($this->dispatcher);
+        //$f->approve($approvalDto);
+        $this->approvalFacade->approve($approvalDto);
 
         return response()->json(['message' => 'Invoice approved successfully'], 200);
     }
@@ -69,8 +73,9 @@ class InvoiceController extends Controller
             'Invoice'
         );
 
-        $f = new ApprovalFacade($this->dispatcher);        
-        $f->reject($approvalDto);
+        //$f = new ApprovalFacade($this->dispatcher);        
+        //$f->reject($approvalDto);
+        $this->approvalFacade->reject($approvalDto);
 
         return response()->json(['message' => 'Invoice rejected successfully'], 200);
     }    

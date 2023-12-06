@@ -108,4 +108,4 @@ TODO:
 - it is not written in DDD
 - usage of eloquent models in Controllers
 - Controllers are heavy: code is not encapsulated in Service/Command/etc
-- Invoice module invokes ApprovalFacade directly instead of usage of adapter pattern
+- Invoice module invokes ApprovalFacade directly instead of usage of adapter pattern (RS: fix, see last commit)
