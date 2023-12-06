@@ -106,6 +106,6 @@ http://localhost:8000/api/approve/2b9fbae0-8709-48f3-ad95-d5d29d7839af
 
 TODO:
 - it is not written in DDD
-- usage of eloquent models in Controllers
-- Controllers are heavy: code is not encapsulated in Service/Command/etc
-- Invoice module invokes ApprovalFacade directly instead of usage of adapter pattern (RS: fix, see last commit)
+- usage of eloquent models in Controllers (todo RS: use service - easy)
+- Controllers are heavy: code is not encapsulated in Service/Command/etc (todo RS: use service - easy)
+- Invoice module invokes ApprovalFacade directly instead of usage of adapter pattern (RS: fix, see commit: "fix: Invoice module invokes ApprovalFacade directly instead of usage of adapter pattern")
